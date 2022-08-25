@@ -3,25 +3,21 @@ const addToDoText = document.querySelector("#to-do-input");
 const toDoList = document.querySelector(".list");
 const toDoForm = document.querySelector("#to-do-form");
 
-function deleteToDo() {
-  newLi.remove();
-}
-
-function newButton() {
+function newButton(where) {
   const newButton = document.createElement("button");
   newButton.classList = "delete-button";
-  newButton.innerHTML = "delete";
-  toDoList.append(newButton);
+  newButton.innerHTML = "DONE!";
+  where.append(newButton);
   newButton.addEventListener("click", function () {
     console.log("usuwam");
-    newLi.value = "";
+    where.remove();
   });
 }
 function newLi() {
   const newLi = document.createElement("Li");
   newLi.innerText = addToDoText.value;
   toDoList.append(newLi);
-  newButton();
+  newButton(newLi);
   addToDoText.value = "";
 }
 
